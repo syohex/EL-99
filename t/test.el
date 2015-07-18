@@ -50,4 +50,56 @@ By convention, the first element in the list is element 0."
   "Find the number of elements of a list."
   (should (equal (p05/reverse '(1 1 2 3 5 8)) '(8 5 3 2 1 1))))
 
+(require 'p06)
+(ert-deftest p06/is-palindrome ()
+  "Find out whether a list is a palindrome"
+  (should (p06/is-palindrome '(1 2 3 2 1))))
+
+(require 'p07)
+(ert-deftest p07/flatten ()
+  "Flatten a nested list structure"
+  (should (equal (p07/flatten '((1 1) 2 (3 (5 8)))) '(1 1 2 3 5 8))))
+
+(require 'p08)
+(ert-deftest p08/compress ()
+  "Eliminate consecutive duplicates of list elements"
+  (should (equal (p08/compress '(a a a a b c c a a d e e e e))
+                 '(a b c a d e))))
+
+(require 'p09)
+(ert-deftest p09/pack ()
+  "Pack consecutive duplicates of list elements into sublists."
+  (should (equal (p09/pack '(a a a a b c c a a d e e e e))
+                 '((a a a a) (b) (c c) (a a) (d) (e e e e)))))
+
+(require 'p10)
+(ert-deftest p10/encode ()
+  "Run-length encoding of a list"
+  (should (equal (p10/encode '(a a a a b c c a a d e e e e))
+                 '((4 . a) (1 . b) (2 . c) (2 . a) (1 . d) (4 . e)))))
+
+(require 'p11)
+(ert-deftest p11/encode-modified ()
+  "Modified run-length encoding"
+  (should (equal (p11/encode-modified '(a a a a b c c a a d e e e e))
+                 '((4 . a) b (2 . c) (2 . a) d (4 . e)))))
+
+(require 'p12)
+(ert-deftest p12/decode ()
+  "Decode a run-length encoded list"
+  (should (equal (p12/decode '((4 . a) (1 . b) (2 . c) (2 . a) (1 . d) (4 . e)))
+                 '(a a a a b c c a a d e e e e))))
+
+(require 'p13)
+(ert-deftest p13/encode-direct ()
+  "Run-length encoding of a list (direct solution)"
+  (should (equal (p13/encode-direct '(a a a a b c c a a d e e e e))
+                 '((4 . a) (1 . b) (2 . c) (2 . a) (1 . d) (4 . e)))))
+
+(require 'p14)
+(ert-deftest p14/duplicate ()
+  "Duplicate the elements of a list"
+  (should (equal (p14/duplicate '(a b c c d))
+                 '(a a b b c c c c d d))))
+
 ;;; test.el ends here
