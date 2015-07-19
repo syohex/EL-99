@@ -102,4 +102,10 @@ By convention, the first element in the list is element 0."
   (should (equal (p14/duplicate '(a b c c d))
                  '(a a b b c c c c d d))))
 
+(require 'p15)
+(ert-deftest p15/duplicate-n ()
+  "Duplicate the elements of a list"
+  (should (equal (p15/duplicate-n 3 '(a b c c d))
+                 '(a a a b b b c c c c c c d d d))))
+
 ;;; test.el ends here
