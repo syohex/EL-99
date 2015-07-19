@@ -1,4 +1,4 @@
-;;; p15.el --- problem15
+;;; p16.el --- problem16
 
 ;; Copyright (C) 2015 by Syohei YOSHIDA
 
@@ -24,12 +24,12 @@
 
 (require 'cl-lib)
 
-(defun p15/duplicate-n (n lst)
-  "Duplicate the elements of a list a given number of times."
+(defun p16/drop (n lst)
   (cl-loop for x in lst
-           append (cl-loop repeat n
-                           collect x)))
+           for i = 1 then (1+ i)
+           unless (zerop (mod i n))
+           collect x))
 
-(provide 'p15)
+(provide 'p16)
 
-;;; p15.el ends here
+;;; p16.el ends here

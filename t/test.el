@@ -104,8 +104,14 @@ By convention, the first element in the list is element 0."
 
 (require 'p15)
 (ert-deftest p15/duplicate-n ()
-  "Duplicate the elements of a list"
+  "Duplicate the elements of a list a given number of times"
   (should (equal (p15/duplicate-n 3 '(a b c c d))
                  '(a a a b b b c c c c c c d d d))))
+
+(require 'p16)
+(ert-deftest p16/duplicate-n ()
+  "Drop every Nth element from a list"
+  (should (equal (p16/drop 3 '(a b c d e f g h i j k))
+                 '(a b d e g h j k))))
 
 ;;; test.el ends here
