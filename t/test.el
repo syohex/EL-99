@@ -120,4 +120,10 @@ By convention, the first element in the list is element 0."
   (should (equal (p17/split 3 '(a b c d e f g h i j k))
                  '((a b c) (d e f g h i j k)))))
 
+(require 'p18)
+(ert-deftest p18/slice ()
+  "Extract a slice from a list."
+  (should (equal (p18/slice 3 7 '(a b c d e f g h i j k))
+                 '(d e f g))))
+
 ;;; test.el ends here
