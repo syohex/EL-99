@@ -1,4 +1,4 @@
-;;; p16.el --- problem16
+;;; p17.el --- problem17
 
 ;; Copyright (C) 2015 by Syohei YOSHIDA
 
@@ -22,15 +22,14 @@
 
 ;;; Code:
 
-(require 'cl-lib)
+(defun p17/split (n lst)
+  "Split a list into two parts."
+  (cl-labels ((-split (n lst acc)
+                      (if (zerop n)
+                          (cons (reverse acc) (list lst))
+                        (-split (1- n) (cdr lst) (cons (car lst) acc)))))
+    (-split n lst nil)))
 
-(defun p16/drop (n lst)
-  "Drop every Nth element from a list."
-  (cl-loop for x in lst
-           for i = 1 then (1+ i)
-           unless (zerop (mod i n))
-           collect x))
+(provide 'p17)
 
-(provide 'p16)
-
-;;; p16.el ends here
+;;; p17.el ends here

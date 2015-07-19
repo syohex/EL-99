@@ -114,4 +114,10 @@ By convention, the first element in the list is element 0."
   (should (equal (p16/drop 3 '(a b c d e f g h i j k))
                  '(a b d e g h j k))))
 
+(require 'p17)
+(ert-deftest p17/split ()
+  "Split a list into two parts."
+  (should (equal (p17/split 3 '(a b c d e f g h i j k))
+                 '((a b c) (d e f g h i j k)))))
+
 ;;; test.el ends here
