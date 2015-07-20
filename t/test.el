@@ -126,4 +126,12 @@ By convention, the first element in the list is element 0."
   (should (equal (p18/slice 3 7 '(a b c d e f g h i j k))
                  '(d e f g))))
 
+(require 'p19)
+(ert-deftest p19/rotate ()
+  "Rotate a list N places to the left."
+  (should (equal (p19/rotate 3 '(a b c d e f g h i j k))
+                 '(d e f g h i j k a b c)))
+  (should (equal (p19/rotate -2 '(a b c d e f g h i j k))
+                 '(j k a b c d e f g h i))))
+
 ;;; test.el ends here
