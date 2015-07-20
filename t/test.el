@@ -134,4 +134,10 @@ By convention, the first element in the list is element 0."
   (should (equal (p19/rotate -2 '(a b c d e f g h i j k))
                  '(j k a b c d e f g h i))))
 
+(require 'p20)
+(ert-deftest p20/remove-at ()
+  "Remove the Kth element from a list."
+  (should (equal (p20/remove-at 1 '(a b c d))
+                 '((a c d) b))))
+
 ;;; test.el ends here
