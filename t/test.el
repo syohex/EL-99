@@ -165,4 +165,17 @@ By convention, the first element in the list is element 0."
     (should (= (length got) 6))
     (should (= (length (delete-dups got)) 6))))
 
+(require 'p26)
+(ert-deftest p26/combinations ()
+  "Generate the combinations of K distinct objects chosen from the N
+elements of a list."
+  (let ((got (p26/combinations 2 '(a b c))))
+    (should (= (length got) 3))
+    (should (member '(a b) got))
+    (should (member '(a c) got))
+    (should (member '(b c) got)))
+
+  (let ((got (p26/combinations 3 '(a b c d e f))))
+    (should (= (length got) 20))))
+
 ;;; test.el ends here
