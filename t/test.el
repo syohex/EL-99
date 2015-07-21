@@ -146,4 +146,9 @@ By convention, the first element in the list is element 0."
   (should (equal (p21/insert-at 'new 1 '(a b c d))
                  '(a new b c d))))
 
+(require 'p22)
+(ert-deftest p22/range ()
+  "Create a list containing all integers within a given range."
+  (should (equal (p22/range 4 9) '(4 5 6 7 8 9))))
+
 ;;; test.el ends here
