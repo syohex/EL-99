@@ -140,4 +140,10 @@ By convention, the first element in the list is element 0."
   (should (equal (p20/remove-at 1 '(a b c d))
                  '((a c d) b))))
 
+(require 'p21)
+(ert-deftest p21/insert-at ()
+  "Insert an element at a given position into a list."
+  (should (equal (p21/insert-at 'new 1 '(a b c d))
+                 '(a new b c d))))
+
 ;;; test.el ends here
