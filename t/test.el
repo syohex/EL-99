@@ -151,4 +151,11 @@ By convention, the first element in the list is element 0."
   "Create a list containing all integers within a given range."
   (should (equal (p22/range 4 9) '(4 5 6 7 8 9))))
 
+(require 'p23)
+(ert-deftest p23/random-select ()
+  "Extract a given number of randomly selected elements from a list."
+  (let ((got (p23/random-select 3 '(a b c d f g h))))
+    (should (= (length got) 3))
+    (should (= (length (delete-dups got)) 3))))
+
 ;;; test.el ends here
