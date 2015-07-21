@@ -158,4 +158,11 @@ By convention, the first element in the list is element 0."
     (should (= (length got) 3))
     (should (= (length (delete-dups got)) 3))))
 
+(require 'p25)
+(ert-deftest p25/random-permute ()
+  "Generate a random permutation of the elements of a list."
+  (let ((got (p25/random-permute '(a b c d e f))))
+    (should (= (length got) 6))
+    (should (= (length (delete-dups got)) 6))))
+
 ;;; test.el ends here
